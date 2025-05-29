@@ -1,0 +1,19 @@
+# Python
+project_env/
+__pycache__/
+*.py[cod]
+*.sqlite
+*.sqlite3
+instance/
+
+# Node.js
+node_modules/
+scheduling-app/vite-project/dist/
+scheduling-app/vite-project/.vite/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log

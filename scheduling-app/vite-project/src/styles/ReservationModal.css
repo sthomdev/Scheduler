@@ -1,0 +1,111 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for better focus */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.modal-content {
+    background-color: #ffffff; /* Consistent with page backgrounds */
+    padding: 25px;
+    border-radius: 8px; /* Consistent with other containers */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Standard shadow */
+    width: 90%;
+    max-width: 450px; /* Max width for better readability on larger screens */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Match MainView font */
+}
+
+.modal-content h2 {
+    color: #343a40; /* Match MainView h1 color */
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em; /* Slightly smaller than page titles */
+    text-align: center;
+}
+
+.modal-content p {
+    margin-bottom: 10px;
+    color: #495057; /* Standard text color */
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.modal-content strong {
+    color: #343a40;
+}
+
+.modal-form-group {
+    margin-bottom: 20px;
+}
+
+.modal-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.modal-form-group input[type="number"],
+.modal-form-group textarea {
+    width: calc(100% - 22px); /* Full width minus padding and border */
+    padding: 10px;
+    border: 1px solid #ced4da; /* Softer border, matches search input */
+    border-radius: 5px; /* Consistent border-radius */
+    font-size: 1em;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.075); /* Subtle inner shadow */
+}
+
+.modal-form-group textarea {
+    min-height: 80px; /* Reasonable default height */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.modal-form-group input[type="number"]:focus,
+.modal-form-group textarea:focus {
+    outline: none;
+    border-color: #80bdff; /* Highlight on focus, matches search input */
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Bootstrap-like focus shadow */
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-top: 25px;
+}
+
+.modal-button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px; /* Consistent border-radius */
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.modal-button.primary {
+    background-color: #007bff; /* Primary button color (blue) */
+    color: white;
+}
+
+.modal-button.primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.modal-button.secondary {
+    background-color: #6c757d; /* Secondary button color (grey) */
+    color: white;
+}
+
+.modal-button.secondary:hover {
+    background-color: #545b62; /* Darker grey on hover */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}

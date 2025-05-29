@@ -1,0 +1,93 @@
+/* c:/Users/TTOCS/AScheduler/scheduling-app/vite-project/src/styles/MainView.css */
+.main-view-container {
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    background-color: #f8f9fa; /* Lighter background for a cleaner look */
+    min-height: 100vh;
+}
+
+.main-view-container h1 {
+    color: #343a40; /* Darker heading color */
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2.2em;
+}
+
+.controls-container {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* Stack search and date nav */
+    align-items: center; /* Center items */
+    gap: 15px; /* Space between search and date nav */
+}
+
+.search-input {
+    padding: 10px 15px;
+    width: 60%; /* Adjust width as needed */
+    max-width: 450px;
+    border: 1px solid #ced4da; /* Softer border color */
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #80bdff; /* Highlight on focus */
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Bootstrap-like focus shadow */
+}
+
+.date-navigation {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between buttons and date display */
+    background-color: #e9ecef; /* Light background for the nav area */
+    padding: 8px 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.date-nav-button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+}
+
+.date-nav-button:hover {
+    background-color: #0056b3;
+}
+
+.today-button {
+    background-color: #28a745; /* Green for today button */
+}
+
+.today-button:hover {
+    background-color: #1e7e34;
+}
+
+.current-date-display {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #343a40;
+    padding: 0 10px;
+    min-width: 120px; /* Ensure it has some space */
+    text-align: center;
+}
+
+/* Loading and error states */
+.loading-message,
+.error-message {
+    text-align: center;
+    font-size: 1.2em;
+    padding: 20px;
+    color: #6c757d; /* Muted text color */
+}
+
+.error-message {
+    color: #dc3545; /* Error color (red) */
+}

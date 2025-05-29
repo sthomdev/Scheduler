@@ -1,0 +1,130 @@
+/* c:\Users\TTOCS\AScheduler\scheduling-app\vite-project\src\styles\DeviceInfoPage.css */
+.device-info-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #f4f7f6;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.device-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.device-header h1 {
+    color: #333;
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-link:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.info-sections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.info-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.info-section h2 {
+    color: #0056b3;
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.plot-placeholder {
+    background-color: #e9ecef;
+    border: 1px dashed #ccc;
+    padding: 30px;
+    text-align: center;
+    color: #666;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.data-item {
+    margin-bottom: 12px;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.data-item strong {
+    color: #333;
+    margin-right: 8px;
+}
+
+.data-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.data-item a:hover {
+    text-decoration: underline;
+}
+
+.controls-section .control-button {
+    display: block;
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.controls-section .control-button:hover {
+    background-color: #218838;
+}
+
+.controls-section .control-button:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .device-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .back-link {
+        margin-top: 10px;
+    }
+    .info-sections-grid {
+        grid-template-columns: 1fr; /* Stack sections on smaller screens */
+    }
+}

@@ -1,0 +1,85 @@
+/* c:/Users/TTOCS/AScheduler/scheduling-app/vite-project/src/styles/ScheduleGrid.css */
+.schedule-grid-container {
+    overflow-x: auto; /* Reverted to auto, best for OS-native scrollbar behavior */
+    background-color: #ffffff; /* White background for the grid itself */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer, more modern shadow */
+    padding: 15px; /* Add some padding around the table */
+}
+
+.schedule-grid-container table {
+    border-collapse: collapse;
+    table-layout: fixed; /* Helps with consistent column widths */
+}
+
+.schedule-grid-container th,
+.schedule-grid-container td {
+    border: 1px solid #dee2e6; /* Lighter border color */
+    padding: 12px 10px; /* Increased padding for better readability */
+    text-align: center;
+    font-size: 0.9em;
+    min-width: 80px; /* Minimum width for time slot columns */
+}
+
+.schedule-grid-container th {
+    background-color: #e9ecef; /* Light grey for headers */
+    color: #495057; /* Darker text for header contrast */
+    font-weight: 600; /* Slightly bolder header text */
+    position: sticky;
+    top: 0; /* Make headers sticky */
+    z-index: 10;
+}
+
+.schedule-grid-container td:first-child, /* Resource name column */
+.schedule-grid-container th:first-child {
+    min-width: 150px; /* Wider column for resource names */
+    text-align: left;
+    background-color: #f8f9fa; /* Slightly different background for resource names */
+    position: sticky;
+    left: 0; /* Make resource names sticky */
+    z-index: 5; /* Ensure it's above cells but below main header */
+    font-weight: 500;
+}
+
+.resource-link {
+    text-decoration: none;
+    color: #007bff; /* Standard link blue */
+    font-weight: 500;
+}
+
+.resource-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+.time-slot-cell {
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.time-slot-cell.available {
+    background-color: #d4edda; /* Softer green for available */
+    color: #155724; /* Darker green text for contrast */
+}
+
+.time-slot-cell.available:hover {
+    background-color: #c3e6cb; /* Slightly darker green on hover */
+}
+
+.time-slot-cell.reserved {
+    background-color: #f8d7da; /* Softer red/pink for reserved */
+    color: #721c24; /* Darker red text for contrast */
+    font-weight: 500;
+    cursor: not-allowed; /* Indicate non-clickable for reservation modification (handled by click) */
+}
+
+/* Style for the content within reserved cells (description) */
+.time-slot-cell.reserved span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%; /* Ensure it doesn't overflow the cell */
+}
+
+/* Modal styling should be in its own CSS or a general component CSS */
