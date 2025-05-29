@@ -95,8 +95,8 @@ const DeviceInfoPage = () => {
 
                 <section className="info-section controls-section">
                     <h2>Controls</h2>
-                    <button onClick={handleStartLog} className="control-button">Start Log</button>
-                    <button onClick={handleViewLive} className="control-button">View Live Feed</button>
+                    <button onClick={handleStartLog} className="control-button">Start uLog</button>
+                    <button onClick={handleViewLive} className="control-button">View Live mavlink Feed</button>
                 </section>
             </div>
         </div>
