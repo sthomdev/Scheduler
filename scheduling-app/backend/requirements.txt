@@ -1,7 +1,10 @@
-Flask==3.0.3
+Flask==3.0.0
 Flask-SQLAlchemy==3.1.1
-SQLAlchemy==2.0.30
 Flask-Migrate==4.0.7
-Flask-Cors
-python-dotenv
-Flask-SocketIO
+Flask-CORS==4.0.0
+Flask-SocketIO==5.3.6
+python-dotenv==1.0.1
+psycopg2-binary
+SQLAlchemy==2.0.25
+alembic==1.13.1
+flasgger==0.9.7

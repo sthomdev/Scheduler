@@ -4,6 +4,9 @@ from datetime import timezone # Added import for timezone
 db = SQLAlchemy()
 
 class Resource(db.Model):
+    """
+    Resource model for the database.
+    """
     __tablename__ = 'resources'
     
     id = db.Column(db.Integer, primary_key=True)
@@ -23,6 +26,9 @@ class Resource(db.Model):
         }
 
 class Reservation(db.Model):
+    """
+    Reservation model for the database.
+    """
     __tablename__ = 'reservations'
     
     id = db.Column(db.Integer, primary_key=True)

@@ -15,11 +15,39 @@ def init_routes(app, app_db, app_socketio):
 
 @routes.route('/resources', methods=['GET'])
 def get_resources():
+    """
+    Get all resources
+    ---
+    responses:
+      200:
+        description: A list of resources
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/Resource'
+    """
     resources = Resource.query.all()
     return jsonify([resource.to_dict() for resource in resources])
 
 @routes.route('/resources/<int:resource_id>', methods=['GET'])
 def get_resource_details(resource_id):
+    """
+    Get a specific resource by ID
+    ---
+    parameters:
+      - name: resource_id
+        in: path
+        type: integer
+        required: true
+        description: The ID of the resource to retrieve
+    responses:
+      200:
+        description: Details of the resource
+        schema:
+          $ref: '#/definitions/Resource'
+      404:
+        description: Resource not found
+    """
     resource = Resource.query.get(resource_id)
     if not resource:
         return jsonify({'error': 'Resource not found'}), 404
@@ -27,6 +55,29 @@ def get_resource_details(resource_id):
 
 @routes.route('/reserve', methods=['POST'])
 def reserve_resource():
+    """
+    Reserve a resource
+    ---
+    parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ReservationRequest' # Updated to use central definition
+    responses:
+      201:
+        description: Reservation successful
+        schema:
+          $ref: '#/definitions/Reservation'
+      400:
+        description: Invalid request data or validation error
+      404:
+        description: Resource not found
+      409:
+        description: Time slot conflict
+      500:
+        description: Internal server error
+    """
     data = request.json
     resource_id = data.get('resource_id')
     start_time_str = data.get('start_time')
@@ -84,11 +135,48 @@ def reserve_resource():
 
 @routes.route('/reservations', methods=['GET'])
 def get_reservations():
+    """
+    Get all reservations
+    ---
+    responses:
+      200:
+        description: A list of all reservations
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/Reservation'
+    """
     reservations = Reservation.query.all()
     return jsonify([reservation.to_dict() for reservation in reservations])
 
 @routes.route('/availability/<int:resource_id>', methods=['GET'])
 def check_availability(resource_id):
+    """
+    Check availability for a resource
+    ---
+    parameters:
+      - name: resource_id
+        in: path
+        type: integer
+        required: true
+        description: The ID of the resource to check availability for
+    responses:
+      200:
+        description: Availability information for the resource
+        schema:
+          type: object
+          properties:
+            resource_id:
+              type: integer
+            message:
+              type: string
+            reservations:
+              type: array
+              items:
+                $ref: '#/definitions/Reservation'
+      404:
+        description: Resource not found
+    """
     resource = Resource.query.get(resource_id)
     if not resource:
         return jsonify({'error': 'Resource not found'}), 404
@@ -102,6 +190,23 @@ def check_availability(resource_id):
 
 @routes.route('/reservations/<int:reservation_id>', methods=['DELETE'])
 def delete_reservation(reservation_id):
+    """
+    Delete a reservation by ID
+    ---
+    parameters:
+      - name: reservation_id
+        in: path
+        type: integer
+        required: true
+        description: The ID of the reservation to delete
+    responses:
+      200:
+        description: Reservation cancelled successfully
+      404:
+        description: Reservation not found
+      500:
+        description: Internal server error
+    """
     try:
         reservation = Reservation.query.get(reservation_id)
         if reservation:
